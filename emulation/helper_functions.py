@@ -110,13 +110,13 @@ def plot_emulation_process_diagram():
     nodes = [
         "Input\n(X)",
         "Expensive\nModel",
-        "Synthetic\nData\n(y)",
+        "Synthetic\nResult\n(y)",
         "Training\nData\n(X, y\npairs)",
         "Machine\nLearning\nModel\nTraining",
         "Diagnostic\nOutput",
         "New\nInput\n(X_new)",
         "Trained\nMachine\nLearning\nModel",
-        "Fast\nApproximation\n(y_new_approx)"
+        "Fast\nApprox.\nResult\n(y_new_approx)"
     ]
     G.add_nodes_from(nodes)
 
@@ -124,26 +124,26 @@ def plot_emulation_process_diagram():
     pos = {
         "Input\n(X)": (0, 0),
         "Expensive\nModel": (1, 0),
-        "Synthetic\nData\n(y)": (2, 0),
+        "Synthetic\nResult\n(y)": (2, 0),
         "Training\nData\n(X, y\npairs)": (0, -1),
         "Machine\nLearning\nModel\nTraining": (1, -1),
         "Diagnostic\nOutput": (2, -1),
         "New\nInput\n(X_new)": (0, -2),
         "Trained\nMachine\nLearning\nModel": (1, -2),
-        "Fast\nApproximation\n(y_new_approx)": (2, -2),
+        "Fast\nApprox.\nResult\n(y_new_approx)": (2, -2),
     }
 
     # Add edges
     edges = [
         ("Input\n(X)", "Expensive\nModel"),
-        ("Expensive\nModel", "Synthetic\nData\n(y)"),
+        ("Expensive\nModel", "Synthetic\nResult\n(y)"),
         ("Input\n(X)", "Training\nData\n(X, y\npairs)"),
-        ("Synthetic\nData\n(y)", "Training\nData\n(X, y\npairs)"),
+        ("Synthetic\nResult\n(y)", "Training\nData\n(X, y\npairs)"),
         ("Training\nData\n(X, y\npairs)", "Machine\nLearning\nModel\nTraining"),
         ("Machine\nLearning\nModel\nTraining", "Diagnostic\nOutput"),
         ("Machine\nLearning\nModel\nTraining", "Trained\nMachine\nLearning\nModel"),
         ("New\nInput\n(X_new)", "Trained\nMachine\nLearning\nModel"),
-        ("Trained\nMachine\nLearning\nModel", "Fast\nApproximation\n(y_new_approx)")
+        ("Trained\nMachine\nLearning\nModel", "Fast\nApprox.\nResult\n(y_new_approx)")
     ]
     G.add_edges_from(edges)
 
